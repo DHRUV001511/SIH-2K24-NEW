@@ -1,0 +1,46 @@
+
+.books-bg {
+    background: linear-gradient(135deg, #004aad 0%, #6bc3fe 100%);
+    position: relative;
+    padding: 50px 0;
+    overflow: hidden;
+  }
+  
+  /* Floating circles animation */
+  .books-bg::before,
+  .books-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .books-bg::before {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: 30%;
+    animation-duration: 8s;
+  }
+  
+  .books-bg::after {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: 20%;
+    animation-duration: 10s;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+    }
+    50% {
+      transform: translateY(-30px) translateX(20px) scale(1.05);
+    }
+    100% {
+      transform: translateY(0) translateX(0) scale(1);
+    }
+  }
+  
