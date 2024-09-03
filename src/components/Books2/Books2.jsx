@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Book1 from "../../assets/books/sihbook1.jpg";
-import Book2 from "../../assets/books/sihbook2.jpg";
-import Book3 from "../../assets/books/sihbook3.jpg";
+import Book1 from "../../assets/arrival/kids.jpg";
+import Book2 from "../../assets/arrival/upsc.png";
+import Book3 from "../../assets/arrival/novel.jpg";
 import Book4 from "../../assets/books/sihbook4.jpg";
 import Book5 from "../../assets/books/sihbook5.jpg";
 import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
@@ -14,26 +14,26 @@ const booksData = [
   {
     id: 1,
     img: Book1,
-    title: "Computer System Architecture",
+    title: "Puzzle Book",
     rating: 5.0,
-    author: "By M.Morris Mano",
+    author: "By Jennifer & Beth",
     price: 300,
   },
   {
     id: 2,
     img: Book2,
-    title: "Database Management System",
+    title: "World History",
     rating: 4.5,
-    author: "By A.A.Puntambekar",
-    price: 350,
+    author: "By PI",
+    price: 230,
   },
   {
     id: 3,
     img: Book3,
-    title: "Discrete Maths",
+    title: "SOUL",
     rating: 4.7,
-    author: "By Kenneth H Rosen",
-    price: 250,
+    author: "By Olivia Wilson",
+    price: 200,
   },
   {
     id: 4,

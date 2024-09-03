@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Arkhip&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 
 body {
   margin: 0;
@@ -61,4 +63,12 @@ code {
 .font-suse-bold {
   font-family: "SUSE", sans-serif;
   font-weight: 200;
+}
+/* .lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+.font-lobster-regular {
+  font-family: 'Lobster', cursive;
 }
