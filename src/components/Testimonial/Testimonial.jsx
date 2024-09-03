@@ -39,7 +39,7 @@ const Testimonial = () => {
     speed: 500,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
@@ -70,9 +70,9 @@ const Testimonial = () => {
   };
 
   return (
-    <div data-aos="fade-up" data-aos-duration="300" className="py-16 bg-[#F0FFFF]">
+    <div data-aos="fade-up" data-aos-duration="300" className="py-18 bg-[#F0FFFF]">
       <div className="container mx-auto">
-        <div className="text-center mb-16 max-w-[800px] mx-auto">
+        <div className="text-center mb-15 max-w-[700px] mx-auto">
           <p className="text-lg text-blue-600 bg-clip-text bg-gradient-to-r from-primary to-secondary">
             What our customers say
           </p>
@@ -111,7 +111,7 @@ const Testimonial = () => {
 
 
       {/*Testimonials */}
-      <div className="bg-blue-600 text-white py-12 mt-12 w-full">
+      <div className="bg-blue-600 text-white py-10 mt-12 w-full">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-10">
           <div className="md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-4xl font-bold leading-tight mb-4">Buy, Sell, Donate, or Borrow Books from Us</h2>

@@ -1,10 +1,14 @@
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Book1 from "../../assets/books/sihbook1.jpg";
 import Book2 from "../../assets/books/sihbook2.jpg";
 import Book3 from "../../assets/books/sihbook3.jpg";
 import Book4 from "../../assets/books/sihbook4.jpg";
 import Book5 from "../../assets/books/sihbook5.jpg";
-import { FaStar } from "react-icons/fa6";
+import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import './Books.css'; 
 
 const booksData = [
   {
@@ -50,65 +54,105 @@ const booksData = [
 ];
 
 const Books = () => {
+  // Custom Arrow components
+  
+  const NextArrow = ({ onClick }) => (
+    <div
+      className="absolute top-1/2 transform -translate-y-1/2 right-2 text-black cursor-pointer z-10"
+      onClick={onClick}
+    >
+      <FaChevronRight size={30} />
+    </div>
+  );
+
+  const PrevArrow = ({ onClick }) => (
+    <div
+      className="absolute top-1/2 transform -translate-y-1/2 left-1 text-black cursor-pointer z-10 x-20 y-7"
+      onClick={onClick}
+    >
+      <FaChevronLeft size={30} />
+    </div>
+  );
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <>
-      <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#F0FFFF" }}>
-        <div className="container py-14">
-          {/* header */}
-          <div className="text-center mb-10 max-w-[600px] mx-auto">
-            <h1
-              className="text-3xl font-bold"
-              style={{ fontFamily: "'ARKHIP', sans-serif" }} // Updated font style
-            >
-              Top Books
-            </h1>
-          </div>
+    <div className="min-h-screen flex items-center justify-center books-bg">
+      <div className="container py-14 relative">
+        {/* Header */}
+        <div className="text-center mb-10 max-w-[600px] mx-auto">
+          <h1 className="text-3xl font-bold font-suse-bold">Trending Books</h1>
+          <p className="font-suse-light">Some lighter text here.</p>
+        </div>
 
-          {/* Body section */}
-          <div>
-            <div className="grid grid-cols-5 gap-6 place-items-center">
-              {/* Card */}
-              {booksData.map(({ id, img, title, rating, author, price }) => (
-                <div
-                  key={id}
-                  className="space-y-8 p-9 bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-[#004aad] transition-shadow duration-300"
-                >
-                  <img
-                    src={img}
-                    alt={title}
-                    className="h-[200px] w-[150px] object-cover rounded-md"
-                  />
-                  <div className="text-black text-center">
-                    <h3 className="font-semibold">{title}</h3>
-                    <p className="text-sm text-gray-700">{author}</p>
-                    <div className="flex items-center justify-center gap-1">
-                      <FaStar className="text-yellow-500" />
-                      <span>{rating}</span>
-                    </div>
-                    <div className="text-lg font-bold">
-                      Rs. {price}
-                    </div>
-                    {/* Add to Cart Button */}
-                    <button className="mt-3 bg-[#ff914d] text-white py-1 px-4 rounded-md hover:bg-[#e67b38] transition-colors duration-300">
-                      Add to Cart
-                    </button>
+        {/* Slider Section */}
+        <Slider {...settings}>
+          {booksData.map(({ id, img, title, rating, author, price }) => (
+            <div key={id} className="p-10">
+              <div
+                className="space-y-4 p-3 bg-white rounded-xl shadow-md hover:shadow-lg hover:shadow-[#004aad] transition-shadow duration-300"
+                style={{ width: "300px" }} // Adjusted width for the book cover
+              >
+                <img
+                  src={img}
+                  alt={title}
+                  className="h-[240px] w-[185px] rounded-xl object-cover rounded-md mx-auto"
+                />
+                <div className="text-black text-center">
+                  <h3 className="font-semibold">{title}</h3>
+                  <p className="text-sm text-gray-700">{author}</p>
+                  <div className="flex items-center justify-center gap-1">
+                    <FaStar className="text-yellow-500" />
+                    <span>{rating}</span>
                   </div>
+                  <div className="text-lg font-bold">Rs. {price}</div>
+                  {/* Add to Cart Button */}
+                  <button className="mt-3 bg-[#ff914d] text-white py-1 px-4 rounded-md hover:bg-[#e67b38] transition-colors duration-300">
+                    Add to Cart
+                  </button>
                 </div>
-              ))}
+              </div>
             </div>
+          ))}
+        </Slider>
 
-            {/* View All Books Button */}
-            <div className="flex justify-center mt-10">
-              <button className="text-center cursor-pointer bg-[#004aad] text-white py-2 px-6 rounded-md hover:bg-[#003a8c] transition-colors duration-300">
-                View All
-              </button>
-            </div>
-          </div>
+        {/* View All Books Button */}
+        <div className="flex justify-center mt-10">
+          <button className="text-center cursor-pointer bg-[#004aad] text-white py-2 px-6 rounded-md hover:bg-[#003a8c] transition-colors duration-300">
+            View All
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Books;
-
