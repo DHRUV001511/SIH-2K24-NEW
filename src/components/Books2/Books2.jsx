@@ -8,7 +8,7 @@ import Book3 from "../../assets/books/sihbook3.jpg";
 import Book4 from "../../assets/books/sihbook4.jpg";
 import Book5 from "../../assets/books/sihbook5.jpg";
 import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import './Books.css'; 
+import './Books2.css';
 
 const booksData = [
   {
@@ -53,17 +53,17 @@ const booksData = [
   },
 ];
 
-const Books = () => {
+const Books2 = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const curvyLine = document.querySelector(".curvy-line");
       const trendingBooksSection = document.querySelector(".trending-books");
       const rect = trendingBooksSection.getBoundingClientRect();
+      const curvyLine = document.querySelector(".underlined");
 
       if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        curvyLine.classList.add("visible");
+        curvyLine.classList.add("animated");
       } else {
-        curvyLine.classList.remove("visible");
+        curvyLine.classList.remove("animated");
       }
     };
 
@@ -84,7 +84,7 @@ const Books = () => {
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className="absolute top-1/2 transform -translate-y-1/2 left-1 text-black cursor-pointer z-10 x-20 y-7"
+      className="absolute top-1/2 transform -translate-y-1/2 left-1 text-black cursor-pointer z-10"
       onClick={onClick}
     >
       <FaChevronLeft size={30} />
@@ -122,14 +122,28 @@ const Books = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center books-bg">
+    <div className="min-h-screen flex items-center justify-center books2-bg">
       <div className="container py-14 relative">
         {/* Header */}
-        <div className="text-center mb-10 max-w-[600px] mx-auto trending-books">
-  <h1 className="big relative inline-block font-suse-bold">
-    Trending <span className="underlined scroll-animate">Books</span>
-  </h1>
-</div>
+        <div className="text-center mb-4 max-w-[600px] mx-auto trending-books">
+          <h1 className="big relative inline-block font-suse-bold">
+            New <span className="underlined animated scroll-animate">Arrival</span>
+          </h1>
+        </div>
+
+        {/* Categories */}
+    <div className="text-center mb-15 max-w-[600px] mx-auto">
+        <div className="font-suse-light text-xl flex justify-center space-x-8">
+            <span className="hover:text-[#ff914d] cursor-pointer">Novels</span>
+            <span className="px-2">|</span> {/* Added padding around the separator */}
+            <span className="hover:text-[#ff914d] cursor-pointer">Philosophy</span>
+            <span className="px-2">|</span>
+            <span className="hover:text-[#ff914d] cursor-pointer">Horror</span>
+            <span className="px-2">|</span>
+            <span className="hover:text-[#ff914d] cursor-pointer">Others</span>
+        </div>
+    </div>
+
 
 
         {/* Slider Section */}
@@ -174,4 +188,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default Books2;
