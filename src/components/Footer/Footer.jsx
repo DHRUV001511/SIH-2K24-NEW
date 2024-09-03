@@ -5,7 +5,7 @@ import GranthSetu from "../../assets/GranthSetu.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black mt-10"> {/* Footer gap from previous content */}
+    <footer className="bg-white text-black mt-10">
       <div className="container mx-auto px-6 py-10">
         <div className="flex flex-wrap justify-between">
           {/* Logo and Description */}
